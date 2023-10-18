@@ -35,4 +35,4 @@ jobs:
 
     - name: AWS Deploy
       run: |
-        aws s3 cp README.md s3://$AWS_ARTIFACT_BUCKET_NAME/swissbank_$GITHUB_REF.md
+        aws s3 cp README.md s3://$AWS_ARTIFACT_BUCKET_NAME/swissbank_$GITHUB_SHA.md
