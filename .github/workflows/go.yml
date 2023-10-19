@@ -24,7 +24,7 @@ jobs:
 
     - name: Compile and package
       env:
-        BUILD_ARTIFACT: README_build_${GITHUB_SHA}
+        BUILD_ARTIFACT: ${{ README_build_${GITHUB_SHA} }}
       run: |
         zip ${BUILD_ARTIFACT} README.md
         ls -lah
