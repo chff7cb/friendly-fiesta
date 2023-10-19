@@ -27,6 +27,7 @@ jobs:
         BUILD_ARTIFACT: README_build_${GITHUB_SHA}
       run: |
         zip ${BUILD_ARTIFACT} README.md
+        ls -lah
 
     - name: AWS authenticate
       uses: aws-actions/configure-aws-credentials@v4
