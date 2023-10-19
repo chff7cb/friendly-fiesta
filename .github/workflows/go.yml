@@ -22,6 +22,12 @@ jobs:
       with:
         go-version: '1.20'
 
+    - name: Compile and package
+      env:
+        BUILD_ARTIFACT: README_build_${GITHUB_SHA}
+      run: |
+        zip ${BUILD_ARTIFACT} README.md
+
     - name: AWS authenticate
       uses: aws-actions/configure-aws-credentials@v4
       with:
@@ -35,4 +41,4 @@ jobs:
 
     - name: AWS Deploy
       run: |
-        aws s3 cp README.md s3://${{ secrets.AWS_ARTIFACT_BUCKET_NAME }}/swissbank_$GITHUB_SHA.md
+        aws s3 cp ${BUILD_ARTIFACT} s3://${{ secrets.AWS_ARTIFACT_BUCKET_NAME }}/swissbank_$GITHUB_SHA.md
