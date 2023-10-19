@@ -27,6 +27,7 @@ jobs:
         BUILD_ARTIFACT=README_build_${GITHUB_SHA}
         zip ${BUILD_ARTIFACT} README.md
         ls -lah
+        echo $AWS_LAMBDA_FUNCTION_NAME
 
     - name: AWS authenticate
       uses: aws-actions/configure-aws-credentials@v4
